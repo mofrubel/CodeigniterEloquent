@@ -8,29 +8,28 @@ Second, create a new directory called public in project root directory and place
 Third, create a file called composer.json in project root and require illuminate/database package and then install that package via composer install command. (N.B. If composer is not presnet in your system then install it first).
 
 Now lets include autoload.php file in index.php file by adding
-require_once '../vendor/autoload.php';
+
+	require_once '../vendor/autoload.php';
 
 then we need to config and install Eloquent. To do so in database config file add these lines in bellow default CI database config. Create a New Database and then config accordingly.
 
-$capsule = new Capsule;
+	$capsule = new Capsule;
+	$capsule->addConnection([
+	    'driver'    => 'mysql',
+	    'host'      => $db['default']['hostname'],
+	    'database'  => $db['default']['database'],
+	    'username'  => $db['default']['username'],
+	    'password'  => $db['default']['password'],
+	    'charset'   => $db['default']['char_set'],
+	    'collation' => $db['default']['dbcollat'],
+	    'prefix'    => $db['default']['dbprefix'],
+	]);
+	$capsule->setAsGlobal();
+	$capsule->bootEloquent();
 
-$capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => $db['default']['hostname'],
-    'database'  => $db['default']['database'],
-    'username'  => $db['default']['username'],
-    'password'  => $db['default']['password'],
-    'charset'   => $db['default']['char_set'],
-    'collation' => $db['default']['dbcollat'],
-    'prefix'    => $db['default']['dbprefix'],
-]);
+and add use on top
+	Illuminate\Database\Capsule\Manager as Capsule; 
 
-
-$capsule->setAsGlobal();
-$capsule->bootEloquent();
-
-and add use Illuminate\Database\Capsule\Manager as Capsule; 
-in top
 
 Now All Configuration and installation done. it's time to play with Eloquent ORM in CodeIgniter
 to begin with create a model class called usermodel like bellow
