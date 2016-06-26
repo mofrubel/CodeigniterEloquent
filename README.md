@@ -35,17 +35,12 @@ in top
 Now All Configuration and installation done. it's time to play with Eloquent ORM in CodeIgniter
 to begin with create a model class called usermodel like bellow
 
-<?php
-use Illuminate\Database\Eloquent\Model as Eloquent;
-
-/**
-* Developed by Rubel
-*/
-
-class Usermodel extends Eloquent
-{
-	protected $table = 'users';	
-}
+	use Illuminate\Database\Eloquent\Model as Eloquent;
+	
+	class Usermodel extends Eloquent
+	{
+		protected $table = 'users';	
+	}
 
 And In Controller load that model as usual and then use like bellow
     
