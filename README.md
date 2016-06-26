@@ -1,6 +1,8 @@
 # CodeigniterEloquent
 Eloquent ORM in Codeigniter (Popular PHP Framework)
 
+we have used CodeIgniter \*Version 3.0.6\* and \*illuminate/database v5.2.37\*.
+
 First download codeIgniter full repo and place index.php file, application and system folder to your project folder.
 
 Second, create a new directory called public in project root directory and place index.php in that directory
